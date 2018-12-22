@@ -52,7 +52,7 @@ gulp.task('server',()=>{
 		// // 端口
 		// port:666,
 		// 监听文件修改，自动刷新
-		files:['./src/**/*.html','./src/css/*.css','./src/api/*.php']
+		files:['./src/**/*.html','./src/css/*.css','./src/api/*.php','./src/index.html']
 	});
 	// 监听sass文件修改，并自动编译
 	gulp.watch('./src/sass/*.scss',gulp.series('bianyi'))	
