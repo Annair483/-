@@ -2,21 +2,21 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var pump = require('pump');
-// gulp.task('bianyi',function(){
-//     return gulp.src('./src/sass/a.scss').pipe(sass()).pipe(gulp.dest('./src/css/'))
-// });
-// gulp.task('jt',function(){
-//     gulp.watch('./src/sass/a.scss',gulp.series('bianyi'))
-// })
 gulp.task('bianyi',function(){
-		return	pump([gulp.src('./src/sass/index.scss'),
-		sass(),
-		gulp.dest('./src/css/')
-	])
-})
+    return gulp.src('./src/sass/index.scss').pipe(sass({outputStyle:'expanded'})).pipe(gulp.dest('./src/css/'))
+});
+// gulp.task('jt',function(){
+//     gulp.watch('./src/sass/index.scss',gulp.series('bianyi'))
+// })
+// gulp.task('bianyi',function(){
+// 		return	pump([gulp.src('./src/sass/index.scss'),
+// 		sass({outputStyle:'expanded'}),
+// 		gulp.dest('./src/css/')
+// 	])
+// })
 // gulp.task('jt',function(){
 	
-// 		gulp.watch('./src/sass/a.scss',gulp.series('bianyi'))
+// 		gulp.watch('./src/sass/index.scss',gulp.series('bianyi'))
 	
 // })
 //压缩html

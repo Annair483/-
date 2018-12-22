@@ -1,0 +1,46 @@
+#header {
+  background: #FAFAFA;
+}
+
+#header .header .header-t {
+  font-size: 12px;
+  height: 39px;
+  border-bottom: 1px solid #F0F0F0;
+}
+.head-t-l{
+    line-height: 39px;
+}
+.header .header-t span,.head-t-r a{
+    color: #777777;
+}
+.header-t span a{
+    color: #333333;
+}
+.header-t .head-t-r{
+    height: 39px;
+}
+.header-t .head-t-r li{
+    width: 100px;
+}
+.header-t .head-t-r>li{
+    float: left;
+    line-height: 39px;
+    position: relative;
+}
+.head-t-r>li>span{
+    padding-left: 16px;
+}
+.head-t-r>li>ul>li{
+    display: none;
+    padding-left: 16px;
+    height: 35px;
+}
+.head-t-r>li:hover{
+    border: 1px solid #F0F0F0;
+    background: #fff;
+}
+.head-t-r>li:hover>ul>li{
+    display: block;
+}
+
+
