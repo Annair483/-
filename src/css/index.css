@@ -1,8 +1,8 @@
-#header {
+#public-top-layout {
   background: #FAFAFA;
 }
 
-#header .header .header-t {
+#public-top-layout .public-top-layout .header-t {
   font-size: 12px;
   height: 39px;
   border-bottom: 1px solid #F0F0F0;
@@ -10,7 +10,7 @@
 .head-t-l{
     line-height: 39px;
 }
-.header .header-t span,.head-t-r a{
+.public-top-layout .header-t span,.head-t-r a{
     color: #777777;
 }
 .header-t span a{
@@ -27,8 +27,20 @@
     line-height: 39px;
     position: relative;
 }
-.head-t-r>li>span{
+.head-t-r>li>a{
     padding-left: 16px;
+}
+.head-t-r>li>i{
+    display: inline-block;
+    margin-left: 7px;
+    vertical-align: middle;
+    width: 6px;
+    height: 3px;
+    background: url(../images/nav_tb.png) no-repeat 0 0 ;
+}
+/* nva 右侧箭头旋转样式 */
+.nav_jt_rotate{
+    transform: rotate(180deg);
 }
 .head-t-r>li>ul>li{
     display: none;
@@ -42,5 +54,90 @@
 .head-t-r>li:hover>ul>li{
     display: block;
 }
-
-
+.header .header-c{
+    padding-top: 47px;
+    height: 172px;
+}
+.header-c .logo a{
+    display: inline-block;
+    width: 220px;
+    height: 60px;
+    text-indent: -99999em;
+    background: url(../images/logo.png) no-repeat 0 0;
+}
+.header-c .search{
+    margin-left: 86px;
+}
+.header-c .search .searchMenu{
+    width: 93px;
+    height: 50px;
+    border: 1px solid #CCCCCC;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    color: #999999;
+}
+.searchMenu>i{
+    display: inline-block;
+    width: 9px;
+    height: 5px;
+    background: url(../images/nav_jt.png) no-repeat 0 0;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.search .searchText{
+    width: 533px;
+    height: 50px;
+    border: 1px solid #CCCCCC;
+    border-left:none;
+    border-right:none;
+    font-size: 14px;
+    color:#757575;
+    padding-left: 20px;
+}
+.search button{
+    width: 105px;
+    height: 50px;
+    font-size: 18px;
+    color:#FFFFFF;
+    background: #EF3C79;
+}
+.search form{
+    margin-bottom: 20px;
+}
+.search .keyword a{
+    font-size: 14px;
+    color:#999999;
+    margin-right: 15px;
+}
+.my-mall,.my-cart{
+    font-size: 14px;
+    background: #FAFAFA;
+    text-align: center;
+    line-height: 53px;
+    margin-left: 7px;
+    border: 1px solid #F0F0F0;
+}
+.my-mall{
+    width: 141px;
+    height: 53px;
+}
+.my-cart{
+    width: 160px;
+    height: 53px;
+}
+.head-user-menu i{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 5px solid ;
+    border-color: #777777 transparent transparent transparent;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.nav{
+    border-bottom: 3px solid #EF3C79;
+}
+.nav .allGoods{
+    background: #EF3C79;
+}
