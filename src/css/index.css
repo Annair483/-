@@ -1,7 +1,161 @@
+#ncToolbar {
+    position: fixed;
+    z-index: 1998;
+    width: 35px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+#ncToolbar .ncToolbar{
+    width: 35px;
+    height: 100%;
+}
+#ncToolbar .ncToolbar .ever{
+    width: 35px;
+    height: 147px;
+    background-color: #000;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    margin-top: -79px;
+}
+.ever .cart a{
+    display: block;
+    width: 35px;
+    height: 100px;
+    padding: 10px 0 0;
+    border-top: dotted 1px #555;
+    border-bottom: dotted 1px #555;
+    position: relative;
+    z-index: 1;
+}
+.icon{
+    display: block;
+    background: url(../images/ncToolbar.png) no-repeat;
+    width: 35px;
+    height: 35px;
+}
+.ever .chat{
+    height: 46px;
+}
+.ever .chat a{
+    display: block;
+    width: 35px;
+    height: 35px;
+    padding: 5px 0 6px 0;
+    position: relative;
+    z-index: 1;
+}
+.cart .icon{
+    background-position: 0 -120px;
+}
+.chat .icon{
+    background-position: 0 0;
+}
+.cart .name{
+    line-height: 16px;
+    color: #FFF;
+    display: block;
+    text-align: center;
+    width: 15px;
+    padding: 0 10px;
+    white-space: pre-wrap;
+}
+.tit{
+    line-height: 25px;
+    color: #FFF;
+    background: url(../images/ncToolbar.png) no-repeat -50px 0;
+    white-space: nowrap;
+    /* display: none; */
+    width: 121px;
+    height: 33px;
+    padding: 4px 21px 4px 15px;
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    right: -6px;
+    font-size: 10px;
+}
+.chat:hover {
+    background: #EF3C79;
+}
+/* .chat:hover .tit{
+    display: block;
+} */
+.ncToolbar .variation{
+    width: 35px;
+    height: 100%;
+    background-color: #000;
+    position: relative;
+    z-index: 1;
+}
+.ncToolbar .variation .middle{
+    width: 35px;
+    height: 250px;
+    margin-top: -125px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 0;
+}
+.middle .user .avatar{
+    background-color: #FFF;
+    width: 28px;
+    height: 28px;
+    margin: 3px auto 4px auto;
+    border-radius: 14px;
+
+}
+.user .avatar img{
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    position: relative;
+    z-index: 2;
+}
+.prech{
+    width: 35px;
+    height: 158px;
+}
+.compare{
+    height: 46px;
+}
+.compare a{
+    display: block;
+    width: 35px;
+    height: 46px;
+    padding: 5px 0 6px 0;
+    position: relative;
+    z-index: 3;
+}
+.compare .icon{
+    background-position: 0 -40px;
+}
+.compare:hover  {
+    background: #EF3C79;
+}
+.gotop{
+    position: fixed;
+    bottom: 0;
+}
+.gotop a{
+    opacity: 1;
+    display: block;
+    width: 35px;
+    height: 35px;
+    padding: 5px 0 6px 0;
+    position: relative;
+    z-index: 1;
+}
+.gotop .icon{
+    background-position: 0 -80px;
+}
+
+
 #public-top-layout {
   background: #FAFAFA;
 }
-
 #public-top-layout .public-top-layout .header-t {
   font-size: 12px;
   height: 30px;
@@ -239,6 +393,9 @@
     width: 630px;
     display: inline-block;
     border-bottom: 1px solid #F0F0F0;
+}
+.nav3 li:last-child>span{
+    border-bottom: none;
 }
 .banner{
     height: 465px;
