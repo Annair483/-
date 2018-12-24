@@ -6,6 +6,7 @@
     right: 0;
     top: 0;
     bottom: 0;
+    display: none;
 }
 #ncToolbar .ncToolbar{
     width: 35px;
@@ -67,7 +68,7 @@
     color: #FFF;
     background: url(../images/ncToolbar.png) no-repeat -50px 0;
     white-space: nowrap;
-    /* display: none; */
+    display: none;
     width: 121px;
     height: 33px;
     padding: 4px 21px 4px 15px;
@@ -212,6 +213,7 @@
 #header{
     border-bottom: 2px solid #EF3C79;
 }
+
 .header .header-c{
     padding-top: 38px;
     height: 138px;
@@ -300,6 +302,7 @@
     margin-left: 8px;
 }
 /* 导航栏区 */
+
 .nav .allGoods{
     width: 212px;
     height: 38px;
@@ -314,6 +317,9 @@
     padding-left: 7px;
     margin-left: 9px;
     vertical-align: middle;
+}
+.nav .nav-r{
+    margin-bottom: 0;
 }
 .nav .nav-r li{
     float: left;
@@ -331,6 +337,8 @@
 }
 .allGoods .nav2{
     display: none;
+    position: relative;
+    z-index: 5;
 }
 .allGoods:hover .nav2{
     display: block;
@@ -353,6 +361,7 @@
     top: 0;
     width: 986px;
     height: 478px;
+    background: #fff;
     display: none;
 }
 .nav3 .l1{
@@ -398,10 +407,16 @@
     border-bottom: none;
 }
 .banner{
-    height: 465px;
-    background: #0ff;
+    overflow: hidden;
+}
+.banner {
+    height: 350px;
     margin-bottom: 30px;
 }
+
+
+
+
 .main .main-gg-pc-ul li{
     width: 292px;
     height: 360px;
@@ -434,30 +449,42 @@
 .hot_bdan_b{
     height: 380px;
     position: relative;
+    overflow: hidden;
+}
+.hot_bdan_b .hot_goods{
+    position: absolute;
+    left: 0;
 }
 .hot_bdan_b .hot_goods li{
     width: 232px;
     height: 340px;
-    margin-right: 10px;
+    margin-right: 8px;
     text-align: center;
     font-size: 14px;
     float: left;
     position: relative;
+    /* overflow: hidden; */
+}
+.hot_goods .hot_goods_img{
+    width: 220px;
+    height: 220px;
+    margin: 25px auto;
 }
 .hot_goods .hot_goods_img img {
     width: 220px;
     height: 220px;
+    transition: all 0.8s;
 }
 .hot_goods .hot_goods_pic{
     position: absolute;
     bottom: 0;
     left: 0;
     width: 232px;
+    transition: all 0.4s;
 }
 .hot_goods .hot_goods_pic span{
     display: block;
     font-weight: 900;
-    
 }
 .hot_goods .hot_goods_buy a{
     display: inline-block;
@@ -471,6 +498,19 @@
     line-height: 50px;
     display: none;
 }
+.hot_goods li:hover{
+    border: 1px solid #eee;
+}
+.hot_goods li:hover .hot_goods_img img {
+    transform:translateY(-10px);
+}
+.hot_goods li:hover .hot_goods_buy a{
+    display: block;
+}
+.hot_goods li:hover .hot_goods_pic{
+    transform:translateY(-50px);
+}
+
 .hot_bdan_b .hot_goods_btn{
     text-align: center;
     position: absolute;
