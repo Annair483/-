@@ -191,6 +191,7 @@
 }
 .nav2>li:hover .nav3{
     display: block;
+    background: #fff;
 }
  .nav3{
     position: absolute;
@@ -410,6 +411,7 @@
 }
 .main .wrapper{
     height: 250px;
+    border-bottom: 1px solid #EDEDED;
 }
 .wrapper .wrapper-l{
     width: 25%;
@@ -437,12 +439,17 @@
     top: 50px;
     display: none;
 }
+.gz-wb:hover .popup,
+.gz-wx:hover .popup{
+    display: block;
+}
 .popup{
     width: 112px;
     height: 112px;
     text-align: center;
     line-height: 112px;
     border: 1px solid #eee;
+    background: #fff;
 }
 .popup::after,.popup::before{
     content: '';
@@ -462,4 +469,93 @@
 .popup img{
     width: 100px;
     height: 100px;
+}
+.wrapper .wrapper-c {
+    width: 55%;
+    font-size: 12px;
+    white-space: nowrap;
+    padding: 30px 2% 60px 2%;
+}
+.wrapper .wrapper-c li{
+    font-size: 12px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    width: 25%;
+    zoom: 1;
+}
+.wrapper-c li dl{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+.wrapper-c li dt{
+    font: 600 16px/20px "microsoft yahei";
+    color: #333;
+    padding: 5px;
+    margin: 5px 0 12px 0;
+}
+.wrapper-c li dd{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    clear: both;
+    padding: 2px 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.wrapper-c li dd a{
+    color: #333;
+}
+.wrapper-r{
+    padding: 30px 0;
+}
+.wrapper-r .wrapper-r-l{
+    margin:0 11px;
+}
+.wrapper-r .wrapper-r-l p:first-child{
+    margin-top: 8px;
+    border: 1px solid #eee;
+    padding: 5px;
+    width: 96px;
+    height: 96px;
+}
+.wrapper-r-l p:first-child img{
+    width: 84px;`
+    height: 84px;
+}
+.wrapper-r-l p:last-child span{
+    font-size: 12px;
+    color: #333;
+    font-weight: 600;
+}
+.footer{
+    height: 182px;
+    margin: 15px auto;
+    font-size: 12px;
+    color:#666;
+    text-align: center;
+}
+.footer p:first-child,
+.footer p:nth-child(3){
+    word-spacing: 5px;
+    padding: 10px 0;
+    text-align: center;
+}
+.footer p:first-child a,
+.footer p:nth-child(3) a
+{
+    font-size: 12px;
+    border-right: 1px solid #666;
+    padding: 0 10px;
+    color: #666;
+}
+.footer p:first-child a:last-child,
+.footer p:nth-child(3) a:last-child{
+    border: none;;
+}
+.footer p:nth-child(5) {
+    padding: 10px 0;
+    word-spacing: 5px;
 }
