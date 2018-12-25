@@ -6,7 +6,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    display: none;
+    /* display: none; */
 }
 #ncToolbar .ncToolbar{
     width: 35px;
@@ -756,3 +756,33 @@
     padding: 10px 0;
     word-spacing: 5px;
 }
+
+
+/* 轮播图插件样式 */
+.banner .box{
+    /* height: 35px; */
+    position: relative;
+    top: -175px;
+  }
+  .banner .swiper-container {
+    width: 100%;
+    height: 350px;
+}  
+.banner .swiper-pagination-bullet{
+  width: 8px;
+      height: 8px;
+      background: #ccc;
+      opacity: 1;
+}
+.banner .swiper-pagination-bullet-active{
+      
+      background: #fff;
+    }
+.banner  .swiper-button-prev,
+.banner  .swiper-button-next{
+      display: none;
+    }
+.banner .swiper-container:hover .swiper-button-prev,
+.banner .swiper-container:hover .swiper-button-next{
+      display: block;
+    }
