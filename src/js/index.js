@@ -1,5 +1,6 @@
 jQuery(function($){
-    var $hot_goods = $('.hot_goods')
+    var $hot_goods = $('.hot_goods');
+    var $recomgds_ul = $('.recomgds_ul');
     //2级导航、3级导航创建和定位
     function copyNav2(){
         for(var i=0;i<9;i++){
@@ -10,17 +11,48 @@ jQuery(function($){
         };
     };
     copyNav2();
-    //热销商品li生成
-    function hot_bang(){
+
+    //服务器请求数据
+    $.get('../api/indexGoods.php',function(res){
+        //热销商品li生成
+        hot_bang_li_creat(res);
+         //根据li个数生成ul长度
+         hot_bang_li_len();
         
+         //推荐商品li生成
+         recomGds(res);
+         recomGds_li_len();
+    },'json')
+
+    //热销商品li生成
+    function hot_bang_li_creat(res) { 
+        $hot_goods[0].innerHTML= res[0].map(function(item,idx){
+            return `<li>
+            <p class="hot_goods_img ">
+                <a href="#" target="_blank">
+                    <img src="${res[0][idx].images}" alt="">
+                </a>
+            </p>
+            <p class="hot_goods_pic">
+                <span>${res[0][idx].goodsname}</span>
+                <span style="color:#ef3c79;font-weight: 400;">￥${res[0][idx].reducpic}</span>
+            </p>
+            <p class="hot_goods_buy">
+                <a href="#" target="_blank">立即购买</a>
+            </p>
+        </li>`
+        }).join('');
+    }
+
+    //根据li个数生成ul长度
+    function hot_bang_li_len(){
         var $hot_goods_li = $hot_goods.find('li');
-        for(var i=0;i<8;i++){
-            $hot_goods_li.first().clone().appendTo($hot_goods);
-        };
-        //根据li个数生成ul长度
-        $hot_goods.outerWidth($hot_goods_li.first().outerWidth(true)*$hot_goods.find('li').length+'px')
-    };
-    hot_bang();
+         $hot_goods.outerWidth($hot_goods_li.first().outerWidth(true)*$hot_goods_li.length+'px');
+    }
+    function recomGds_li_len(){ 
+        var $recomgds_ul_li = $recomgds_ul.find('li');
+         $recomgds_ul.outerWidth($recomgds_ul_li.first().outerWidth(true)*$recomgds_ul_li.length+'px');
+     }
     //热销榜单选中按钮滑动
     function hot_bang_btn(){
         var $hot_goods_btn = $('.hot_goods_btn');
@@ -36,13 +68,26 @@ jQuery(function($){
         };
     }
     hot_bang_btn();
-    //热销榜单左右拖动
-    //鼠标按下获取获取当前鼠标位置、放开鼠标时获取元素，前者-后者，少于父元素宽50%，动画 left为当前left，大于50%left+i*5*li宽
-    // function hot_gd_move(){
-    //     $hot_goods.on('click',function(e){
-    //         var ox = e.clientX;
+    //商品推荐li生成
+    function recomGds(res){ 
+        $recomgds_ul[0].innerHTML=res[1].map(function(item,idx){
+            return `<li>
+            <a href="#" target="_blank">
+                <div class="reGoods-img">
+                    <img src="${res[1][idx].images}" alt="">
+                </div>
+                <div class="reGoods-des">
+                    <p class="reG-des-p1">
+                    ${res[1][idx].goodsname}
+                    </p>
+                    <p class="reG-des-p2">
+                       <span>￥ ${res[1][idx].reducpic}</span><i>￥${res[1][idx].pic}</i>
+                    </p>
+                </div>
+            </a>
+        </li>`
+        }).join('');
 
-    //     })
-    // }
+     }
     
 })

@@ -562,6 +562,7 @@
 }
 .recommendGoods{
     height: 390px;
+    overflow: hidden;
 }
 .recommendGoods ul li{
     width: 230px;
