@@ -32,15 +32,17 @@ jQuery(function($){
                     $hot_gd_span.eq(i).css('backgroundColor',"#ccc");
                 }
                 $hot_gd_span.eq(i).css('backgroundColor',"#EF3C79");
-                // console.log(i)
-                // console.log(i*5*$hot_goods.find('li').first().outerWidth(true)+'px')
             })
-            
         };
-        // $hot_goods_btn.on('click',function(){
-
-            // console.log($('.hot_goods_btn span').length)
-        // })
     }
     hot_bang_btn();
+    //热销榜单左右拖动
+    //鼠标按下获取获取当前鼠标位置、放开鼠标时获取元素，前者-后者，少于父元素宽50%，动画 left为当前left，大于50%left+i*5*li宽
+    // function hot_gd_move(){
+    //     $hot_goods.on('click',function(e){
+    //         var ox = e.clientX;
+
+    //     })
+    // }
+    
 })
