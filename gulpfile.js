@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var pump = require('pump');
 gulp.task('bianyi',function(){
-    return gulp.src('./src/sass/index.scss').pipe(sass({outputStyle:'expanded'})).pipe(gulp.dest('./src/css/'))
+    return gulp.src('./src/sass/registers.scss').pipe(sass({outputStyle:'expanded'})).pipe(gulp.dest('./src/css/'))
 });
 // gulp.task('jt',function(){
 //     gulp.watch('./src/sass/index.scss',gulp.series('bianyi'))
@@ -46,9 +46,9 @@ var browserSync = require("browser-sync");
 gulp.task('server',()=>{
 	browserSync({
 		// 服务器路径
-		server:'./src/',
+		// server:'./src/',
 		// 代理服务器，必须绑定到当前服务器路径一致
-		// proxy:'http://localhost:12340',
+		proxy:'http://localhost:18102',
 		// // 端口
 		// port:666,
 		// 监听文件修改，自动刷新
