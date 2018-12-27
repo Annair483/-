@@ -102,7 +102,7 @@ jQuery(function($){
         };
         $('.tuiChu').on('click',function(){
             notSign();
-            Cookie.delCookie('user');
+            Cookie.delCookie('user','/');
         })
     }
     //未登录渲染
