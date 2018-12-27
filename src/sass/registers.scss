@@ -1,0 +1,103 @@
+.cons{
+    width: 1000px;
+    margin: 0 auto;
+}
+.header-wrap{
+    border-bottom: solid 2px #F5F5F5;
+    margin: 5px auto 0 auto;
+    .public-head-layout{
+        height: 80px;
+        .site-logo{
+            margin: 10px 0 0 0;
+            width: 240px;
+            height: 60px;
+            float: left;
+        }
+        .nc-login-now{
+            font-size: 14px;
+            color: #AAA;
+            line-height: 24px;
+            float: right;
+            height: 24px;
+            margin-top: 50px;
+            .register{
+                display: inline-block;
+                font-weight: 600;
+                margin-left: 4px;
+                color: #EF3C77;
+            }
+        }
+    }
+}
+#footer{
+    height: 70px;
+    font-size: 12px !important;
+    text-align: center;
+    margin: 15px auto;
+    padding-bottom: 10px;
+    overflow: hidden;
+    p{
+        color: #666;
+        word-spacing: 5px;
+        padding: 10px 0;
+        a{
+            color: #666;
+            text-decoration: none;
+        }
+    }
+}
+#main{
+    height: 680px;
+    background: url(../images/register_bg.png) no-repeat;
+    background-size: cover;
+    .nc-register-box{
+        background: rgba(0,0,0,0.15);
+        width: 880px;
+        height: 580px;
+        padding: 10px;
+        margin: 60px auto;
+        .nc-register-layout{
+            background-color: #FFF;
+            display: block;
+            width: 860px;
+            height: 560px;
+            padding: 19px;
+            border: solid 1px #CCC;
+            overflow: hidden;
+            .box_l{
+                width: 600px;
+                height: 520px;
+                float: left;
+                .tabs-nav{
+                    // font-size: 0;
+                    word-spacing: -1em;
+                    border-bottom: solid 1px #E6E6E6;
+                    text-align: center;
+                    height: 40px;
+                    li{
+                        color: #EF3C79;
+                        // display: block;
+                        border-bottom: 3px solid #EF3C79;
+                      font-size: 18px;
+                        line-height: 24px;
+                        padding-bottom: 13px;
+                        margin: 0 auto;
+                        vertical-align: bottom;
+                        letter-spacing: normal;
+                        word-spacing: normal;
+                        text-align: center;
+                        display: inline-block;
+                        width: 50%;
+                        height: 40px;
+                    }   
+                }
+            }
+            .box_r{
+                width: 200px;
+                height: 500px;
+                float: right;
+                border-left: solid 1px #E6E6E6;
+            }
+        }
+    }
+}
