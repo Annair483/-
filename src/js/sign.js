@@ -15,9 +15,18 @@
         if(res){
             $.get("../api/sgin.php",{'uname':_text,'upw':_upw},function(back){
                 if(back=='1'){
-                    Cookie.setCookie('user',_text,
-                    '','/');
+                    if($check[0].checked){
+                        var dates = new Date();
+                        dates.setDate(dates.getDate()+7);
+                        Cookie.setCookie('user',_text,
+                        dates,'/');
                     location.href = '../index.html';
+                    }else{
+                        Cookie.setCookie('user',_text,
+                        '','/');
+                        location.href = '../index.html';
+                    }
+                    
                 }
                 else{
                     $append_parent.show();
@@ -33,6 +42,10 @@
         }
         return false;
     })
+    function date(day){
+       
+        return dates;
+    }
     //点击title可关闭
     $closeBtn.on('click',function(){
         $append_parent.hide();
