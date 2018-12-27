@@ -1,0 +1,66 @@
+jQuery(function($){
+    var $bigImgSrc = $('.bigImg img');
+    var $goodsName = $('.name h1');
+    var $reducpic = $('.cost-price strong');
+    var $sell = $('.rate span');
+    var $pic = $('.price strong');
+    var $ncsFigure = $('.ncs-figure-input');
+    var $goodsQty = $('.input-text');
+    var $imageMenu = $('.imageMenu');
+    var $smallImg1 = $('.imageMenu li').eq(0).find('img');
+    console.log($smallImg1)
+    var id = location.search.slice(4);
+    // console.log(params)
+    //请求数据库返回数据
+    function ajaxs(){
+        $.get('../api/goodsDetails.php',{'id':id},function(res){
+            console.log(res)
+            bigImgSrc(res);
+        },'json')
+    }
+    //详情页数据生成
+    function bigImgSrc(res){
+        // img路径
+        $bigImgSrc.attr({
+            'src':res[0].images,
+            'data-big':res[0].images
+        })
+        //商品名
+        $goodsName.html(res[0].goodsname);
+        //原价
+        $reducpic.html(`￥${res[0].reducpic}`);
+        //现价
+        $pic.html(`￥${res[0].pic}`);
+        //销量
+        $sell.html(res[0].sell);
+        //第一张小图=大图
+        $smallImg1.attr({
+            'src':res[0].images,
+            'data-big':res[0].images
+        });
+        changeImg();
+    };
+    //数量加减
+    function goodsQty(){
+        var _goodsQty = $goodsQty.val();
+        $ncsFigure.on('click',function(e){
+            if(e.target.className == "increase"){
+                $goodsQty.val(++_goodsQty)
+            }else if(e.target.className == "decrease"&&_goodsQty>0){
+                $goodsQty.val(--_goodsQty)
+            }
+        })
+    }
+    //tab切换smallImg到bigIMg
+    function changeImg(){
+        $imageMenu.on('mouseover','img',function(e){
+            $bigImgSrc.attr({
+                'src':this.src,
+                'data-big':this.dataBig
+            })
+        })
+    }
+    $('.bigImg').lxzoom({width:627,height:467}).addClass('box');
+    goodsQty();
+    ajaxs();
+})

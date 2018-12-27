@@ -63,10 +63,9 @@ jQuery(function($){
     }
     //点击商品传参id到详情页
     function locations(res){
-       
         $suqares_ul.on('click','li',function(){
-            var id= $(this).attr('data-id');
-                location.href=`goodsDetails.html?id=${id}`;
+            var $id= $(this).attr('data-id');
+                location.href=`goodsDetails.html?id=${$id}`;
             })
     }
      //服务器请求数据

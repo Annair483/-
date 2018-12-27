@@ -435,18 +435,18 @@ body a:hover{
     height: 465px;
     float: left;
     display: inline;
-    border: 1px solid #0f0;
+    border: 1px solid #f9f9f9;
 }
 .main_con_t_l .bigImg {
     position: relative;
-    width: 360px;
+    width: 358px;
     height: 360px;
     overflow: hidden;
-    background:red;
+    background:#fff;
 }
 .main_con_t_l .bigImg img{
     display: block;
-    width: 360px;
+    width: 358px;
     height: 360px;
     vertical-align: middle;
 }
@@ -471,7 +471,13 @@ body a:hover{
     width: 50px;
     height: 50px;
     cursor: pointer;
-    background: #0ff;
+    /* background: #0ff; */
+    text-align: center;
+    line-height: 48px;
+}
+.imageMenu  ul li img{
+    width: 48px;
+    height: 46px;
 }
 .imageMenu  ul li:hover{
     border: 1px solid red;
@@ -586,6 +592,10 @@ body a:hover{
     color:#777;
     text-decoration: underline;
 }
+.cost-price strong{
+    text-decoration: line-through;
+    font-weight: 400;
+}
 dl  .price{
     vertical-align: middle;
     font-size: 30px;
@@ -678,12 +688,12 @@ dl  .price{
     font-weight: 600;
     line-height: 41px;
     text-align: center;
-    height: 41px;
+    height: 43px;
     width: 43px;
     padding: 0;
     border: solid 1px #E6E6E6;
 }
-.ncs-figure-input  a{
+.ncs-figure-input  span{
     font-size: 0;
     background-color: #FFF;
     background: url(../images/goodsclear_bd.png) no-repeat ;

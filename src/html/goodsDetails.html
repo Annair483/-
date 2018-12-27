@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/goodsDetails.css">
     <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/jquery-lxzoom/jquery.lxzoom.css">
+    <link rel="stylesheet" href="../css/goodsDetails.css">
+   
     <script src="../lib/jquery-3.2.1.js"></script> 
-    
+    <script src="../lib/jquery-lxzoom/jquery.lxzoom.js"></script>
     <script src="../js/goodsDetails.js"></script>
 </head>
 <body>
@@ -186,26 +188,26 @@
                  <div class="main_conten">
                      <div class="main_conten_t">
                          <div class="main_con_t_l">
-                             <div class="bigImg">
-                                 <img src="#" alt="">
+                             <div class="bigImg ">
+                                 <img src="" alt="" data-big="">
                              </div>
                              <div class="smallImg">
                                  <div class="imageMenu">
                                      <ul>
                                         <li  >
-                                            <img src="#" alt=""/>
+                                            <img src="" alt="" data-big=""/>
                                         </li>
                                         <li  >
-                                            <img src="#" alt=""/>
+                                            <img src="../images/goodsImages/gds_list_img2.jpg" alt="" data-big="../images/goodsImages/gds_list_img2.jpg"/>
                                         </li>
                                         <li  >
-                                            <img src="#" alt=""/>
+                                            <img src="../images/goodsImages/gds_list_img3.jpg" alt="" data-big="../images/goodsImages/gds_list_img3.jpg"/>
                                         </li>
                                         <li  >
-                                            <img src="#" alt=""/>
+                                            <img src="../images/goodsImages/gds_list_img4.jpg" alt="" data-big="../images/goodsImages/gds_list_img4.jpg"/>
                                         </li>
                                         <li  >
-                                            <img src="#" alt=""/>
+                                            <img src="../images/goodsImages/gds_list_img5.jpg" alt="" data-big="../images/goodsImages/gds_list_img5.jpg"/>
                                         </li>
                                      </ul>
                                  </div>
@@ -258,7 +260,7 @@
                                             <img src="../images/goodsclear_star.png" alt="">
                                             <img src="../images/goodsclear_star.png" alt="">
                                         </span>
-                                        <a href="#ncGoodsRate">共有1条评价</a>(销量：14)</dd>
+                                        <a href="#ncGoodsRate">共有1条评价</a>(销量：<span>14</span>)</dd>
                                     <!-- E 描述相符评分 -->
                                 </dl>
                                 <!-- E 商品评论 -->
@@ -280,9 +282,9 @@
                                 <div class="ncs-figure-input">
                                         <input type="text"  id="quantity" value="1" size="3" maxlength="6" class="input-text">
 
-                                        <a href="#" class="increase" nctype="increase">&nbsp;</a> 
+                                        <span class="increase" nctype="increase">&nbsp;</span> 
 
-                                        <a href="#" class="decrease" nctype="decrease">&nbsp;</a> 
+                                        <span class="decrease" nctype="decrease">&nbsp;</span> 
                                 </div>
                                     <div class="ncs-btn">
                                             <!-- 加入购物车-->
