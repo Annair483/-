@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="../css/sign.css">
     <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../lib/jquery-3.2.1.js"></script> 
+    <script src="../lib/gVerify.js"></script>
     <script src="../js/sign.js"></script>
 </head>
 <body>
-    <div class="header-wrap">
+    <div class="header-wrap"> 
         <header class="public-head-layout wrapper cons">
             <h1 class="site-logo"><a href="https://www.baiyangwang.com"><img src="https://b2cstatic.baiyangwang.com/shop/common/logo.png" class="pngFix"></a></h1>
             <div class="nc-regist-now">
@@ -21,6 +22,19 @@
                 </span>
             </div>
         </header>
+        <div class="append_parent ">
+            <div class="title">
+                <span>提示信息</span>
+                <i>&times;</i>
+            </div>
+            <div class="append_man">
+                <i></i>
+                <span>用户名或密码错误</span>
+            </div>
+            <div class="append_bottom">
+                <i></i><span>2秒后窗口关闭</span>
+            </div>
+        </div>
         <div id="main">
             <div class="main cons">
                 <div class="main_l">
@@ -44,12 +58,12 @@
                                     <span>密 码:</span>
                                     <input type="password" id="upw" placeholder="6-20个大小写英文字母、符号或数字">
                                 </label>
-                                <label for="#yz" class="lb3">
+                                <label for="#code_input" class="lb3">
                                     <div class="inpText">
                                         <span>验证码:</span>
-                                        <input type="text" id="yz" placeholder="输入验证码">
+                                        <input type="text" class="yzText" id="code_input" placeholder="输入验证码">
                                     </div>
-                                    <div class="yzm"></div>
+                                    <div class="yzm" id="v_container"></div>
                                 </label>
                                 <div class="sevenDay">
                                     <input type="checkbox" name="mianDengLu"><span>七天自动登录</span><a href="#" target="_blank">忘记密码?</a>

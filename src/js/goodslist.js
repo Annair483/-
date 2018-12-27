@@ -64,7 +64,7 @@ jQuery(function($){
                         </a>
                     </div>
                     <div class="add_carts">
-                        <i class="glyphicon glyphicon-shopping-cart"></i>加入购物车</div>
+                        <i class="iconfont">&#xe60c;</i>加入购物车</div>
                 </div>
             </div>
         </li>`

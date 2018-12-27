@@ -461,7 +461,7 @@ body a:hover{
     overflow: hidden;
 }
 .imageMenu{
-    height: 50px;
+    height: 52px;
     width: 350px;
     overflow: hidden;
     margin-left: 0;
@@ -479,9 +479,10 @@ body a:hover{
     width: 48px;
     height: 46px;
 }
-.imageMenu  ul li:hover{
+.imageMenu  ul li:hover img{
     border: 1px solid red;
 }
+
 .ncs-handle{
     width: 350px;
     padding: 7px 0 0 10px;
@@ -546,7 +547,6 @@ body a:hover{
     background: #ededed;
     padding: 15px 0;
     position: relative;
-    z-index: 3;
     height: 138px;
 }
 .ncs-meta dl{
