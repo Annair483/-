@@ -15,6 +15,8 @@
         if(res){
             $.get("../api/sgin.php",{'uname':_text,'upw':_upw},function(back){
                 if(back=='1'){
+                    Cookie.setCookie('user',_text,
+                    '','/');
                     location.href = '../index.html';
                 }
                 else{
@@ -35,13 +37,4 @@
     $closeBtn.on('click',function(){
         $append_parent.hide();
     })
-    // $yzText.on('blur',function(){
-    //     var res = verifyCode.validate($yzText.val());
-    //     if(res){
-    //         alert("验证正确");
-    //     }else{
-    //         alert("验证码错误");
-    //     }
-    // })
-  
  })
