@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/registers.css">
     <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../lib/jquery-3.2.1.js"></script> 
+    <script src="../js/common.js"></script>
     <script src="../js/registers.js"></script>
 </head>
 <body>
@@ -39,16 +40,25 @@
                                         <div class="uname login-form">
                                             <span>用户名:</span>
                                             <input type="text">
-                                            <i>系统生成随机用户名，可选择默认或自行修改一次。</i>
+                                            <i>用户名长度6-10，且不能使用特殊符号</i>
+                                        </div>
+                                        <div class="unameTitle">
+                                           用户名格式不合法
                                         </div>
                                         <div class="upw login-form">
                                             <span>设置密码:</span>
-                                            <input type="text">
-                                            <i>系统生成随机密码，请牢记或修改为自设密码。</i>
+                                            <input type="password">
+                                            <i>密码长度6-20，且不能包含空格</i>
+                                        </div>
+                                        <div class="upwTitle">
+                                            密码格式不合法
                                         </div>
                                         <div class="email login-form">
                                             <span>邮箱:</span>
                                             <input type="text" placeholder="输入常用邮箱作为验证及找回密码使用">
+                                        </div>
+                                        <div class="emailTitle">
+                                            邮箱格式不合法
                                         </div>
                                         <div class="clause-div">
                                             <input type="checkbox">
