@@ -14,7 +14,7 @@ jQuery(function($){
     //列表页商品生成
     function squaresList(res){
         $suqares_ul[0].innerHTML = res.data.map(function(item,idx){
-            return `<li>
+            return `<li data-id="${res.data[idx].id}">
             <div class="squares_gds_list">
                 <div class="gds-img">
                         <img src="${res.data[idx].images}" alt="">
@@ -61,12 +61,22 @@ jQuery(function($){
         </li>`
         }).join('');
     }
+    //点击商品传参id到详情页
+    function locations(res){
+       
+        $suqares_ul.on('click','li',function(){
+            var id= $(this).attr('data-id');
+                location.href=`goodsDetails.html?id=${id}`;
+            })
+    }
      //服务器请求数据
      function ajaxs(){ 
         $.get('../api/goodsList.php',{'qty':qty,'currentPage':currentPage},function(res){
             var totalPage = Math.ceil(res.len/res.qty);
             squaresList(res);
             sort(res);
+            locations(res);
+            
             //分页生成
             $pageList[0].innerHTML = "";
             for(var i=1;i<=totalPage;i++){
@@ -181,6 +191,5 @@ jQuery(function($){
         })
     }
     
-    console.log($('.nch-sor-paixu li'))
 })
 
