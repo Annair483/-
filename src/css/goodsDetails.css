@@ -670,16 +670,13 @@ dl  .price{
     display: block;
     clear: both;
     padding: 20px 0 20px 16px;
-    position: relative;
-    z-index: 1;
 }
 .ncs-buy .ncs-figure-input{
     vertical-align: top;
     display: inline-block;
     width: 65px;
-    position: relative;
-    z-index: 1;
     margin-right: 3px;
+    position: relative;
 }
 .ncs-buy .ncs-figure-input .input-text{
     color: #333;
@@ -719,8 +716,6 @@ dl  .price{
     vertical-align: top;
     display: inline-block;
     height: 42px;
-    position: relative;
-    z-index: 70;
     zoom: 1;
 }
 .addcart {
@@ -733,7 +728,6 @@ dl  .price{
     padding: 0px 12px;
     margin-right: 5px;
     border-radius: 2px;
-    position: relative;
     overflow: hidden;
     line-height: 42px;
     font-weight: 700;

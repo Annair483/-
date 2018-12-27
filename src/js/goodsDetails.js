@@ -39,6 +39,7 @@ jQuery(function($){
             'data-big':res[0].images
         });
         changeImg();
+        fly(res)
     };
     //数量加减
     function goodsQty(){
@@ -73,6 +74,26 @@ jQuery(function($){
             $('.nav3')[i+1].style.top = -34*(i+1) + 'px';
         };
     };
+    //飞入购物车
+    function fly(res){
+        var $addcart = $('.addcart');
+        $addcart.on('click',function(e){
+            var $flyDiv = $(`<img src="
+            ${res[0].images}" width="40" height="40">`);
+            $flyDiv.css({
+                'position':'absolute',
+                'left':$addcart.offset().left,
+                'top':$addcart.offset().top,
+            })
+            $flyDiv.appendTo($addcart);
+            var $my_cart = $('.my-cart');
+            $flyDiv.animate({'left':$my_cart.offset().left+30,'top':$my_cart.offset().top+10},500,function(){
+                $flyDiv.remove()
+            })
+            console.log($my_cart.offset().left,$my_cart.offset().top);
+            return false;
+        })
+    }
     copyNav2();
     goodsQty();
     zoom();
