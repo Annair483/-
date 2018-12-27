@@ -10,7 +10,16 @@ jQuery(function($){
     var $lastBtn = $pagination.find('span:contains(末页)');
     ajaxs();
     page();
-
+     //2级导航、3级导航创建和定位
+     function copyNav2(){
+        for(var i=0;i<9;i++){
+            var $nav2 = $(".nav2");
+            var $nav2_li = $nav2.find('li:lt(1)');
+            $nav2_li.clone().appendTo(".nav2");
+            $('.nav3')[i+1].style.top = -34*(i+1) + 'px';
+        };
+    };
+    copyNav2();
     //列表页商品生成
     function squaresList(res){
         $suqares_ul[0].innerHTML = res.data.map(function(item,idx){

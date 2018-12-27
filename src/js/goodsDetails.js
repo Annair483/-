@@ -2,7 +2,7 @@ jQuery(function($){
     var $bigImgSrc = $('.bigImg img');
     var $goodsName = $('.name h1');
     var $reducpic = $('.cost-price strong');
-    var $sell = $('.rate span');
+    var $sell = $('.rate i');
     var $pic = $('.price strong');
     var $ncsFigure = $('.ncs-figure-input');
     var $goodsQty = $('.input-text');
@@ -56,11 +56,25 @@ jQuery(function($){
         $imageMenu.on('mouseover','img',function(e){
             $bigImgSrc.attr({
                 'src':this.src,
-                'data-big':this.dataBig
+                'data-big':this.dataset.big
             })
         })
     }
-    $('.bigImg').lxzoom({width:627,height:467}).addClass('box');
+   //放大镜插件
+   function zoom(){
+        $('.bigImg').lxzoom({width:627,height:467}).addClass('box');
+   }
+    //2级导航、3级导航创建和定位
+    function copyNav2(){
+        for(var i=0;i<9;i++){
+            var $nav2 = $(".nav2");
+            var $nav2_li = $nav2.find('li:lt(1)');
+            $nav2_li.clone().appendTo(".nav2");
+            $('.nav3')[i+1].style.top = -34*(i+1) + 'px';
+        };
+    };
+    copyNav2();
     goodsQty();
+    zoom();
     ajaxs();
 })
