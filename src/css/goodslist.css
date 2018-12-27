@@ -520,6 +520,7 @@ body a:hover{
     height: 363px;
     position: relative;
     text-align: center;
+    cursor: pointer;
 }
 
 .squares .gds-img{

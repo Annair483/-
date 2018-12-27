@@ -35,26 +35,6 @@
   color: #EF3C77;
 }
 
-#footer {
-  height: 70px;
-  font-size: 12px !important;
-  text-align: center;
-  margin: 15px auto;
-  padding-bottom: 10px;
-  overflow: hidden;
-}
-
-#footer p {
-  color: #666;
-  word-spacing: 5px;
-  padding: 10px 0;
-}
-
-#footer p a {
-  color: #666;
-  text-decoration: none;
-}
-
 #main {
   height: 680px;
   background: url(../images/register_bg.png) no-repeat;
@@ -108,9 +88,110 @@
   height: 40px;
 }
 
+#main .nc-register-box .nc-register-layout .box_l .inpuBox {
+  padding: 50px 80px 0 100px;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .login-form {
+  background-color: #FFF;
+  width: 398px;
+  height: 52px;
+  margin-top: -1px;
+  border: solid 1px #E6E6E6;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .login-form span {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 20px;
+  color: #666;
+  width: 92px;
+  padding: 16px 0 16px 20px;
+  float: left;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .login-form input {
+  display: inline-block;
+  height: 48px;
+  float: left;
+  padding: 12px 0;
+  font-size: 12px;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .login-form i {
+  display: inline-block;
+  color: #CCC;
+  line-height: 16px;
+  width: 150px;
+  height: 52px;
+  float: left;
+  font-size: 12px;
+  padding: 12px 0;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .email input {
+  width: 290px;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .clause-div {
+  font-size: 12px;
+  color: #666;
+  line-height: 30px;
+  width: 400px;
+  height: 30px;
+  margin-top: 15px;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .clause-div input {
+  vertical-align: middle;
+  margin-right: 8px;
+  margin-top: -2px;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .clause-div a {
+  color: #EF3C79;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .submit {
+  margin-top: 15px;
+}
+
+#main .nc-register-box .nc-register-layout .box_l .inpuBox .submit input {
+  font-family: "microsoft yahei";
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFF;
+  background-color: #EF3C79;
+  width: 398px;
+  height: 42px;
+  border: solid 1px #EF3C79;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 #main .nc-register-box .nc-register-layout .box_r {
   width: 200px;
   height: 500px;
   float: right;
   border-left: solid 1px #E6E6E6;
+}
+
+#footer {
+  height: 70px;
+  font-size: 12px !important;
+  text-align: center;
+  margin: 15px auto;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+
+#footer p {
+  color: #666;
+  word-spacing: 5px;
+  padding: 10px 0;
+}
+
+#footer p a {
+  color: #666;
+  text-decoration: none;
 }

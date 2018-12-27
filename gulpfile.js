@@ -50,7 +50,7 @@ gulp.task('server',()=>{
 		// 代理服务器，必须绑定到当前服务器路径一致
 		proxy:'http://localhost:18102',
 		// // 端口
-		// port:18102,
+		port:666,
 		// 监听文件修改，自动刷新
 		files:['./src/**/*.html','./src/css/*.css','./src/api/*.php','./src/index.html','./src/js/*.js']
 	});
