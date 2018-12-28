@@ -195,13 +195,3 @@
   color: #666;
   text-decoration: none;
 }
-
-/* 提示样式 */
-.unameTitle,.upwTitle,.emailTitle{
-  display: block;
-  width: 200px;
-  height: 20px;
-  font-size: 12px;
-  color:red;
-  display: none;
-}
