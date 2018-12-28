@@ -286,6 +286,7 @@ body a:hover{
     line-height: 42px;
     margin-left: 6px;
     border: 1px solid #F0F0F0;
+    cursor: pointer;
 }
 .my-mall{
     width: 112px;
@@ -294,6 +295,9 @@ body a:hover{
 .my-cart{
     width: 128px;
     height: 42px;
+}
+.my-cart a:active{
+    color:#000 !important;
 }
 .head-user-menu i{
     display: inline-block;

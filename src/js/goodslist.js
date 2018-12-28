@@ -4,6 +4,7 @@ jQuery(function($){
     var $suqares_ul = $('.suqares_ul');
     var $pagination = $('.pagination');
     var $pageList = $('.pagination ul');
+    var $my_cart = $('.my-cart');
     var $firstBtn = $('.pagination div span:contains(首页)');
     var $preBtn = $pagination.find('span:contains(上一页)');
     var $nextBtn = $pagination.find('span:contains(下一页)');
@@ -63,7 +64,7 @@ jQuery(function($){
                             百洋健康官方自营店
                         </a>
                     </div>
-                    <div class="add_carts">
+                    <div class="add_carts" imgSrc="${res.data[idx].images}">
                         <i class="iconfont">&#xe60c;</i>加入购物车</div>
                 </div>
             </div>
@@ -84,7 +85,7 @@ jQuery(function($){
             squaresList(res);
             sort(res);
             locations(res);
-            
+            fly();
             //分页生成
             $pageList[0].innerHTML = "";
             for(var i=1;i<=totalPage;i++){
@@ -231,6 +232,33 @@ jQuery(function($){
     <span><a href="#"  class="tuiChu">[退出]</a></span>`)
     }
     ifSign();
-    
+
+
+    //飞入购物车
+    function fly(){
+        var $addcart = $('.suqares_ul');
+        $addcart.on('click','.add_carts',function(e){
+            var $flyDiv = $(`<img src="
+            ${$(this).attr('imgSrc')}" width="40" height="40">`);
+            $flyDiv.css({
+                'position':'absolute',
+                'left':$(this).offset().left,
+                'top':$(this).offset().top,
+            })
+            $flyDiv.appendTo($addcart);
+            
+            $flyDiv.animate({'left':$my_cart.offset().left+30,'top':$my_cart.offset().top+10},500,function(){
+                $flyDiv.remove()
+            })
+            // console.log($(this).attr('imgSrc'));
+            return false;
+        })
+    }
+    function zhuantiao(){
+        $my_cart.on('click',function(){
+            location.href = '../html/goodsCart.html';
+        })
+    }
+    zhuantiao();
 })
 
