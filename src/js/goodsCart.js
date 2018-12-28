@@ -44,6 +44,7 @@ jQuery(function($){
         goodsCart(cookie)
         jiaJian(cookie)
         delBtn(cookie)
+        totalPic(cookie)
     }
     //点击+-  qty变化
     function  jiaJian(){
@@ -91,7 +92,6 @@ jQuery(function($){
         // 删除对应商品里cookie对象
         // 重新存cookie
         // 重新渲染
-        // var $delBtn = $('.delBtn');
         $ncc_gds_list.on('click','.delBtn',function(){
             var idxs;
             var $data_id = $(this).closest('li').attr('data-id');
@@ -104,7 +104,34 @@ jQuery(function($){
             goodsCart(cookie)
         })
     }
-    
+    // 勾选要结算商品时显示总价格
+    function totalPic(){
+        // 1勾选商品
+        // 2获取各个商品的pic
+        //      遍历被选中的商品
+                // 每个商品寻找对应的pic推到arr里
+        //              some（）.遍历被选中的cookie的索引
+        // 3。totalPic=各个商品的pic相加
+        // 遍历arr，然后arr里的每个元素相加，返回出的值为total值
+        
+        $ncc_gds_list.on('click','.check input',function(){
+            var $godsCheck = $ncc_gds_list.find(':checked');
+            var picArr = [];
+            $godsCheck.each(function(idx,item){
+               var godsPic = $(item).closest('li').find('.goods-subtotal').html();
+                picArr.push(godsPic)
+                console.log(godsPic)
+            console.log(picArr)
+
+
+            })
+            // var totalPic;
+            // for(var i=0;i<picArr.length;i++){
+            //     totalPic += picArr[i];
+            // }
+        })
+        
+    }
     //渲染商品
     function goodsCart(){
             $ncc_gds_list.find('ul').html(cookie.map(function(item,idx){
