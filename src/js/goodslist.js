@@ -85,7 +85,7 @@ jQuery(function($){
             squaresList(res);
             sort(res);
             locations(res);
-            fly();
+            fly(res);
             //分页生成
             $pageList[0].innerHTML = "";
             for(var i=1;i<=totalPage;i++){
@@ -234,8 +234,8 @@ jQuery(function($){
     ifSign();
 
 
-    //飞入购物车
-    function fly(){
+    //飞入购物车同时存商品信息到cookie
+    function fly(res){
         var $addcart = $('.suqares_ul');
         $addcart.on('click','.add_carts',function(e){
             var $flyDiv = $(`<img src="
@@ -251,14 +251,87 @@ jQuery(function($){
                 $flyDiv.remove()
             })
             // console.log($(this).attr('imgSrc'));
+            setGodsCookie(res,this);
             return false;
         })
     }
+    //列表页转跳购物车页
     function zhuantiao(){
         $my_cart.on('click',function(){
             location.href = '../html/goodsCart.html';
         })
     }
     zhuantiao();
+    //存商品信息到cookie
+    var cookieArr = [];
+    function setGodsCookie(res,ele){
+        var $data_id = $(ele).closest('li').attr('data-id')
+        //1.判断是否存在cookie
+        var cookie = Cookie.getCookie('shopping');
+        if(cookie === ""){
+          // 获取id遍历res，将讯息赋值给obj
+       
+          $(res.data).each(function(idx,item){
+            if(item.id==$data_id){
+              var obj = item;
+              obj.qty = 1;
+              cookieArr.push(obj)
+              Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
+              return false;
+            }
+          })
+        }
+        else{
+            //如果存在cookie ,判断是否有该商品
+            // //1.转json字符串
+            cookieArr = JSON.parse(cookie);         
+            // //遍历数组对象,存在qty++ ,不存在把改res.data加入cookie里再setcookie
+            var someIdx;
+            var hasSome = cookieArr.some(function(item,idx){
+                someIdx = idx;
+                return item.id==$data_id;
+            })
+            if(hasSome){
+                cookieArr[someIdx].qty++;
+                Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
+                console.log(cookieArr)
+
+            }else{
+                $(res.data).each(function(idx,item){
+                    if(item.id==$data_id){
+                      var obj = item;
+                      obj.qty = 1;
+                      cookieArr.push(obj);
+                      Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
+                      console.log(cookieArr)
+                      return false;
+                    }
+                  })
+            }
+            // for(let i=0;i<cookieArr.length;i++){
+            //     if(cookieArr[i].id==$data_id){
+            //         cookieArrp[i].qty++;
+            //         Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
+            //         console.log(666)
+            //         break;
+            //     }{
+                    // $(res.data).each(function(idx,item){
+                    //     if(item.id==$data_id){
+                    //       var obj = item;
+                    //       obj.qty = 1;
+                    //       cookieArr.push(obj);
+                    //       Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
+                    //       console.log(777)
+                    //       return false;
+                          
+                    //     }
+                    //   })
+                      
+            //     }
+            // }
+           
+            
+          }
+    }
 })
 
