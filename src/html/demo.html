@@ -8,39 +8,22 @@
 </head>
 <body>
   <script>
-      function setGodsCookie(){
-        // var arr = [];
-        //将信息传入
-        //1.点击事件
-        //2.currendId
-        //  2.1 遍历res.data.id 符合时将该res.data 赋值给obj
-        //3.obj->json
-        //4.Cookie.setCookie('shopping',"json","time","/");
-        
+      function fun1(x) {       
+    var z=fun2(x+1);        
+    console.log(z);      
+    }      
+function fun2(a){       
+    if(a<10){                
+        fun1(a+1); 
 
-        //1.判断是否存在cookie
-        var cookie = cookie.getCookie('shopping');
-        if(cookie === ""){
-          // 获取id遍历res，将讯息赋值给obj
-          var $data_id = $(this).closest('li').attr('data-id')
-
-          $(res.data).each(function(idsx,item){
-            if(item.id==$data_id){
-              var obj = item;
-              obj.qty = 1;
-              cookieArr.push(obj)
-              Cookie.setCookie('shopping',JSON.parse(cookieArr),'','/')
-              return false;
-            }
-          })
-        }else{
-          //如果存在cookie ,判断是否有该商品
-          //1.转json字符串
-          cookie = JSON.stringify(cookie);
-          //遍历数组对象
-          console.log(cookie)
-        }
-      }
+    }else{       
+      console.log(a)         
+        return a;            
+    }       
+}   
+fun1(2)
+     
+;
   </script>
 </body>
 </html>

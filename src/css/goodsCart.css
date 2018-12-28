@@ -180,6 +180,7 @@ display: block;
     
 }
 .ncc_gds_info{
+    width: 375px;
     font-size: 12px;
     padding: 8px 10px;
     line-height: 24px;
@@ -207,6 +208,7 @@ display: block;
     vertical-align: top;
     padding: 8px 10px;
     text-align: center;
+    user-select: none;
 }
 .ws0 span{
     font-size: 14px;

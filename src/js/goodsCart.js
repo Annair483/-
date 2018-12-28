@@ -1,4 +1,6 @@
 jQuery(function($){
+    var $ncc_gds_list = $('.ncc_gds_list');
+
     //判断是否登录账号
     function ifSign(){
         var cookie = Cookie.getCookie('user')||'';
@@ -32,4 +34,102 @@ jQuery(function($){
     <span><a href="#"  class="tuiChu">[退出]</a></span>`)
     }
     ifSign();
+    //获取cookie
+    var cookie = Cookie.getCookie('shopping');
+    if(cookie==""){
+
+    }else{
+        cookie = JSON.parse(cookie);
+        console.log(cookie)
+        goodsCart(cookie)
+        jiaJian(cookie)
+        delBtn(cookie)
+    }
+    //点击+-  qty变化
+    function  jiaJian(){
+        // var $jian = $('.jian');
+        // var $jia = $('.jia');
+        //减qty
+        $ncc_gds_list.on('click','.jian',function()
+        {   var _jianVal = $(this).next().val()
+             _jianVal>0?$(this).next().val(_jianVal-1):$(this).next().val(0);
+            // 1.把--后的值存到cookie对应的qty上
+            //     1.1获取--后的值
+            //     1.2获取对应的cookie值里的qty=1.1的值
+            //     1.3重新存cookie
+            //2.存完cookie重新渲染
+           var idxs;
+           var $data_id = $(this).closest('li').attr('data-id');
+           cookie.some(function(item,idx){
+                idxs=idx
+                return item.id==$data_id
+           })
+           cookie[idxs].qty=$(this).next().val();
+           Cookie.setCookie('shopping',JSON.stringify(cookie),"","/")
+            goodsCart(cookie)
+        })
+        // 加qty
+        $ncc_gds_list.on('click','.jia',function()
+        {   var _jiaVal = $(this).prev().val()
+           $(this).prev().val(Number(_jiaVal)+1);
+           var idxs;
+           var $data_id = $(this).closest('li').attr('data-id');
+           cookie.some(function(item,idx){
+                idxs=idx
+                return item.id==$data_id
+           })
+           cookie[idxs].qty=$(this).prev().val();
+           Cookie.setCookie('shopping',JSON.stringify(cookie),"","/")
+            goodsCart(cookie)
+        })
+    }
+    //删除商品
+    function delBtn(){
+        //获取删除按钮
+        //点击事件
+        //获取商品对应的cookie的索引
+        // 删除对应商品里cookie对象
+        // 重新存cookie
+        // 重新渲染
+        // var $delBtn = $('.delBtn');
+        $ncc_gds_list.on('click','.delBtn',function(){
+            var idxs;
+            var $data_id = $(this).closest('li').attr('data-id');
+            cookie.some(function(item,idx){
+                idxs=idx
+                return item.id==$data_id
+            })
+            cookie.splice(idxs,1)
+            Cookie.setCookie('shopping',JSON.stringify(cookie),"","/")
+            goodsCart(cookie)
+        })
+    }
+    
+    //渲染商品
+    function goodsCart(){
+            $ncc_gds_list.find('ul').html(cookie.map(function(item,idx){
+                return `<li data-id="${item.id}">
+                <div class="check">
+                    <input type="checkbox">
+                </div>
+                <div class="list_100">
+                    <a href="#"><img src="${item.images}" alt=""></a>
+                </div>
+                <div class="ncc_gds_info">
+                    <a href="#" >${item.goodsinfo}</a>
+                </div>
+                <div class="goods-price">
+                        ${item.reducpic}.00
+                </div>
+                <div class="ws0">
+                    <span class="jian">-</span><input type="text" value="${item.qty}"><span class="jia">+</span>
+                </div>
+                <div class="goods-subtotal">${item.reducpic*item.qty}.00</div>
+                <div class="ncc-border-right">
+                    <p>移入收藏夹</p>
+                    <p class="delBtn">删除</p>
+                </div>
+            </li>`
+            }).join(''))
+    }
 })
