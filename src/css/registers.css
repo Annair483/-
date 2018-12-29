@@ -1,3 +1,13 @@
+.unameTitle,.upwTitle,.emailTitle{
+  /* display: none; */
+  width: 200px;
+  color:red;
+  font-size: 12px;
+  height: 20px;
+}
+.emailTitle{
+  width: 85px;
+}
 .cons {
   width: 1000px;
   margin: 0 auto;

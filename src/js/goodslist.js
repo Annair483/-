@@ -31,11 +31,11 @@ jQuery(function($){
                 </div>
                 <div class="gds-cont">
                     <ul class="gds_pic_show">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li><img src="${res.data[idx].images}"></li>
+                        <li><img src="../images/goodsImages/gds_list_img2.jpg"></li>
+                        <li><img src="../images/goodsImages/gds_list_img3.jpg"></li>
+                        <li><img src="../images/goodsImages/gds_list_img4.jpg"></li>
+                        <li><img src="../images/goodsImages/gds_list_img5.jpg"></li>
                     </ul>
                     <div class="gds-name">${res.data[idx].goodsname}</div>
                     <div class="gds-price">¥${res.data[idx].reducpic}
@@ -70,6 +70,14 @@ jQuery(function($){
             </div>
         </li>`
         }).join('');
+        $('.gds_pic_show li').each(function(idx,items){
+            $(items).on('mouseover',function(){
+                $(items).closest('.gds-cont').prev().find('img').attr({
+                    'src':$(items).find('img').attr('src'),
+                })
+            })
+        })
+        
     }
     //点击商品传参id到详情页
     function locations(res){
@@ -233,10 +241,10 @@ jQuery(function($){
     }
     ifSign();
 
+    var $addcart = $('.suqares_ul');
 
     //飞入购物车同时存商品信息到cookie
     function fly(res){
-        var $addcart = $('.suqares_ul');
         $addcart.on('click','.add_carts',function(e){
             var $flyDiv = $(`<img src="
             ${$(this).attr('imgSrc')}" width="40" height="40">`);
@@ -244,6 +252,7 @@ jQuery(function($){
                 'position':'absolute',
                 'left':$(this).offset().left,
                 'top':$(this).offset().top,
+                'z-index':'20'
             })
             $flyDiv.appendTo($addcart);
             

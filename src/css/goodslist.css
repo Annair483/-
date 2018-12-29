@@ -565,11 +565,20 @@ body a:hover{
     padding: 5px 10px;
 }
 .gds_pic_show li{
-    border: 1px solid #ccc;
     width: 28px;
     height: 28px;
     margin-right: 5px;
     display: inline-block;
+}
+.gds_pic_show li img{
+    width: 28px;
+    height: 28px;
+    display: block;
+    border: 1px solid #ccc;
+
+}
+.gds_pic_show li:hover img{
+    border: 1px solid red;
 }
 .gds-name{
     font-size: 12px;
