@@ -4,7 +4,7 @@ jQuery(function($){
         var _upw = $('.upw input')[0].value.trim();
         var _email = $('.email input')[0].value.trim();
         //用户名
-        if(!/^[a-zA-Z][\w\-]{5,9}$/.test(_uname)){
+        if(!/^[a-zA-Z0-9][\w\-]{5,9}$/.test(_uname)){
             $('.unameTitle').show();
             $('.uname input').val('');
             return false;
