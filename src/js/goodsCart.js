@@ -4,7 +4,6 @@ jQuery(function($){
     //判断是否登录账号
     function ifSign(){
         var cookie = Cookie.getCookie('user')||'';
-        // console.log(cookie)
         
         if(cookie==''){
             notSign()
@@ -40,7 +39,6 @@ jQuery(function($){
 
     }else{
         cookie = JSON.parse(cookie);
-        console.log(cookie)
         goodsCart(cookie)
         jiaJian(cookie)
         delBtn(cookie)
@@ -50,10 +48,10 @@ jQuery(function($){
     function  jiaJian(){
         // var $jian = $('.jian');
         // var $jia = $('.jia');
-        //减qty
+        //减qty，减后重新渲染小计
         $ncc_gds_list.on('click','.jian',function()
         {   var _jianVal = $(this).next().val()
-             _jianVal>0?$(this).next().val(_jianVal-1):$(this).next().val(0);
+            _jianVal>0?$(this).next().val(_jianVal-1):$(this).next().val(0);
             // 1.把--后的值存到cookie对应的qty上
             //     1.1获取--后的值
             //     1.2获取对应的cookie值里的qty=1.1的值
@@ -66,8 +64,11 @@ jQuery(function($){
                 return item.id==$data_id
            })
            cookie[idxs].qty=$(this).next().val();
+        //    改变小计
+           $(this).closest('li').find('.goods-subtotal').html((cookie[idxs].qty*cookie[idxs].reducpic)+'.00')
+        //    存cookie 
            Cookie.setCookie('shopping',JSON.stringify(cookie),"","/")
-            goodsCart(cookie)
+           totalPic(cookie)
         })
         // 加qty
         $ncc_gds_list.on('click','.jia',function()
@@ -80,8 +81,10 @@ jQuery(function($){
                 return item.id==$data_id
            })
            cookie[idxs].qty=$(this).prev().val();
+           $(this).closest('li').find('.goods-subtotal').html((cookie[idxs].qty*cookie[idxs].reducpic)+'.00')
+           
            Cookie.setCookie('shopping',JSON.stringify(cookie),"","/")
-            goodsCart(cookie)
+           totalPic(cookie)
         })
     }
     //删除商品
@@ -102,9 +105,11 @@ jQuery(function($){
             cookie.splice(idxs,1)
             Cookie.setCookie('shopping',JSON.stringify(cookie),"","/")
             goodsCart(cookie)
+            totalPic(cookie)
         })
     }
     // 勾选要结算商品时显示总价格
+    $ncc_gds_list.on('click','.check input',function(){ totalPic() })
     function totalPic(){
         // 1勾选商品
         // 2获取各个商品的pic
@@ -114,22 +119,21 @@ jQuery(function($){
         // 3。totalPic=各个商品的pic相加
         // 遍历arr，然后arr里的每个元素相加，返回出的值为total值
         
-        $ncc_gds_list.on('click','.check input',function(){
+      
             var $godsCheck = $ncc_gds_list.find(':checked');
             var picArr = [];
             $godsCheck.each(function(idx,item){
                var godsPic = $(item).closest('li').find('.goods-subtotal').html();
                 picArr.push(godsPic)
-                console.log(godsPic)
-            console.log(picArr)
-
-
             })
-            // var totalPic;
-            // for(var i=0;i<picArr.length;i++){
-            //     totalPic += picArr[i];
-            // }
-        })
+            var allPic = 0;
+            for(var i=0;i<picArr.length;i++){
+                allPic += picArr[i]*1;
+            }
+            var $totalPic = $('.totalPic span,.ncc-all-account span');
+            $totalPic.html(allPic+'.00');
+            
+      
         
     }
     //渲染商品
@@ -159,4 +163,14 @@ jQuery(function($){
             </li>`
             }).join(''))
     }
+    //全选
+    // function checkAll(){
+        var $checkAllBtn = $('.w50 input');
+        var $allGdsBtn = $('.ncc_gds_list .check input');
+        $checkAllBtn.on('click',function(){
+            $allGdsBtn.prop('checked',$checkAllBtn.prop('checked'))
+            totalPic()
+        })
+    // }
+   
 })
