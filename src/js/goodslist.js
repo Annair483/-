@@ -308,29 +308,6 @@ jQuery(function($){
                     }
                   })
             }
-            // for(let i=0;i<cookieArr.length;i++){
-            //     if(cookieArr[i].id==$data_id){
-            //         cookieArrp[i].qty++;
-            //         Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
-            //         console.log(666)
-            //         break;
-            //     }{
-                    // $(res.data).each(function(idx,item){
-                    //     if(item.id==$data_id){
-                    //       var obj = item;
-                    //       obj.qty = 1;
-                    //       cookieArr.push(obj);
-                    //       Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
-                    //       console.log(777)
-                    //       return false;
-                          
-                    //     }
-                    //   })
-                      
-            //     }
-            // }
-           
-            
           }
     }
 })

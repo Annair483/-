@@ -8,16 +8,68 @@ jQuery(function($){
     var $goodsQty = $('.input-text');
     var $imageMenu = $('.imageMenu');
     var $smallImg1 = $('.imageMenu li').eq(0).find('img');
-    console.log($smallImg1)
+    var $addcart = $('.addcart');
     var id = location.search.slice(4);
     // console.log(params)
     //请求数据库返回数据
     function ajaxs(){
         $.get('../api/goodsDetails.php',{'id':id},function(res){
-            console.log(res)
             bigImgSrc(res);
         },'json')
     }
+    //转跳购物车页
+    var $my_cart = $('.my-cart');
+    $my_cart.on('click',function(){
+        location.href = '../html/goodsCart.html';
+    })
+   
+    
+    //存商品信息到cookie
+    
+    function setGodsCookie(res){
+        var cookieArr = [];
+        var $gdsQty = $('.input-text').val()
+        //1.判断是否存在cookie
+        var cookie = Cookie.getCookie('shopping');
+        if(cookie === ""){
+          // 获取id遍历res，将讯息赋值给obj
+              var obj = res[0];
+              obj.qty = $gdsQty;
+              cookieArr.push(obj)
+              Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
+              
+              console.log(cookieArr)
+              
+        }
+
+        else{
+            //如果存在cookie ,判断是否有该商品
+            // //1.转json字符串
+            cookieArr = JSON.parse(cookie);   
+            // //遍历数组对象,存在qty++ ,不存在把改res.data加入cookie里再setcookie
+            console.log(cookieArr)
+            var someIdx;
+            var hasSome = cookieArr.some(function(item,idx){
+                someIdx = idx;
+                return item.id==res[0].id;
+            })
+            console.log(hasSome)
+            if(hasSome){
+                cookieArr[someIdx].qty= cookieArr[someIdx].qty*1+$gdsQty*1;
+               console.log(cookieArr)
+                Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
+                
+            }
+            else{
+                var obj = res[0];
+                obj.qty = $gdsQty;
+                cookieArr.push(obj);
+                Cookie.setCookie('shopping',JSON.stringify(cookieArr),'','/')
+            }
+                
+        }
+        }
+    
     //详情页数据生成
     function bigImgSrc(res){
         // img路径
@@ -76,7 +128,7 @@ jQuery(function($){
     };
     //飞入购物车
     function fly(res){
-        var $addcart = $('.addcart');
+        
         $addcart.on('click',function(e){
             var $flyDiv = $(`<img src="
             ${res[0].images}" width="40" height="40">`);
@@ -90,7 +142,7 @@ jQuery(function($){
             $flyDiv.animate({'left':$my_cart.offset().left+30,'top':$my_cart.offset().top+10},500,function(){
                 $flyDiv.remove()
             })
-            console.log($my_cart.offset().left,$my_cart.offset().top);
+            setGodsCookie(res);
             return false;
         })
     }
