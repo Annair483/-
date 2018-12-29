@@ -24,9 +24,9 @@ gulp.task('bianyi',function(){
 // var  htmlmin = require('gulp-htmlmin');
  
 // gulp.task('minify', () => {
-//   return gulp.src('./src/html/01.sass学习.html')
+//   return gulp.src('./src/index.html')
 //     .pipe(htmlmin({ collapseWhitespace: true }))
-//     .pipe(gulp.dest('./dist'));
+//     .pipe(gulp.dest('./dist/'));
 // });
 
 //压缩css
@@ -34,11 +34,25 @@ gulp.task('bianyi',function(){
 // let cleanCSS = require('gulp-clean-css');
  
 // gulp.task('minify-css', () => {
-//   return gulp.src('./src/css/a.css')
+//   return gulp.src('./src/css/*.css')
 //     .pipe(cleanCSS({compatibility: 'ie8'}))
-//     .pipe(gulp.dest('./dist'));
+//     .pipe(gulp.dest('./dist/css'));
 // });
 
+//压缩js
+// var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+var pump = require('pump');
+ 
+gulp.task('jsmin',function(){
+
+    gulp.src('./src/js/*.js')
+
+        .pipe(uglify())
+
+        .pipe(gulp.dest('./dist/js'));
+
+});
 //浏览器同步修改
 // var gulp = require('gulp');
 var browserSync = require("browser-sync");
