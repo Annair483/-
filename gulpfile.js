@@ -38,20 +38,20 @@ gulp.task('bianyi',function(){
 //     .pipe(cleanCSS({compatibility: 'ie8'}))
 //     .pipe(gulp.dest('./dist/css'));
 // });
+//引入gulp，gulp-babel的npm模块；
+var babel = require('gulp-babel');
+
 
 //压缩js
 // var gulp = require('gulp');
 var uglify = require('gulp-uglify');
-var pump = require('pump');
- 
-gulp.task('jsmin',function(){
-
-    gulp.src('./src/js/*.js')
-
+gulp.task('jsmin', function () {
+    //压缩src/js目录下的所有js文件
+    //除了test1.js和test2.js（**匹配src/js的0个或多个子文件夹）
+	gulp.src('./src/js/*.js')
+		.pipe(babel())
         .pipe(uglify())
-
-        .pipe(gulp.dest('./dist/js'));
-
+        .pipe(gulp.dest('./dist/js/'));
 });
 //浏览器同步修改
 // var gulp = require('gulp');
