@@ -14,5 +14,4 @@
     echo   json_encode($godsDeta);
     $res -> close();
     $conn -> close();
-
-    ?>
+?>
